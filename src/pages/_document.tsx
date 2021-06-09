@@ -13,6 +13,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script async data-api="/_hive" src="/bee.js"></script>
         </body>
       </Html>
     )
