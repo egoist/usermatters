@@ -69,7 +69,6 @@
     "@types/react-dom": "^17.0.5",
     "@types/request-ip": "^0.0.35",
     "@types/ua-parser-js": "^0.7.36",
-    "@welldone-software/why-did-you-render": "^6.1.4",
     "autoprefixer": "^10.2.6",
     "babel-plugin-superjson-next": "^0.3.0",
     "dotenv": "^8.2.0",
