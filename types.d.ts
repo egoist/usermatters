@@ -7,8 +7,8 @@ declare namespace NodeJS {
     DB_URL: string
     REDIS_URL?: string
     AUTH_SECRET: string
-    AWS_ACCESS_KEY_ID: string
-    AWS_ACCESS_KEY_SECRET: string
+    MAILGUN_API_KEY: string
+    MAILGUN_DOMAIN: string
   }
   interface Global {
     _singletons: Record<string, any>

@@ -1,20 +1,16 @@
-import nodemailer from 'nodemailer'
-import * as aws from '@aws-sdk/client-ses'
+import Mailgun from 'mailgun.js'
+import FormData from 'form-data'
 import { Feedback, Project } from '@prisma/client'
 import { formatDateWithTimezone } from './date'
 import { parseUserAgent } from './ua'
 
-const ses = new aws.SES({
-  apiVersion: '2010-12-01',
-  region: 'us-east-2',
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_ACCESS_KEY_SECRET,
-  },
-})
+const DOMAIN = process.env.MAILGUN_DOMAIN
 
-export const mail = nodemailer.createTransport({
-  SES: { ses, aws },
+const mailgun = new Mailgun(FormData as any)
+const mg = mailgun.client({
+  username: 'api',
+  key: process.env.MAILGUN_API_KEY,
+  url: 'https://api.eu.mailgun.net',
 })
 
 export const sendLoginEmail = async ({
@@ -32,7 +28,7 @@ export const sendLoginEmail = async ({
   const os = ua.os.name
   const userInfo = [browser, os].filter(Boolean).join(', ')
 
-  await mail.sendMail({
+  await mg.messages.create(DOMAIN, {
     from: 'UserMatters support@usermatters.co',
     to: email,
     subject: 'Log in to User Matters',
@@ -88,7 +84,7 @@ export const sendNewFeedbackEmail = async (
     return
   }
 
-  await mail.sendMail({
+  await mg.messages.create(DOMAIN, {
     from: `${feedback.userName} new_feedback@usermatters.co`,
     to: to
       .split(',')
