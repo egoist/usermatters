@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { AppLayout } from '$src/components/AppLayout'
 import React from 'react'
 import { CodeBlock } from '$src/components/CodeBlock'
-import { FeedbackForm } from 'usermatters-react'
+import { FeedbackPopup } from 'usermatters-react'
 
 const PriceCard: React.FC<{
   label: string
@@ -85,7 +85,7 @@ export default function HomePage() {
         />
         <div className="mt-3">Check out the feedback button live below!</div>
         <div className="mt-3">
-          <FeedbackForm project="c_Ek6RB9wJv" api="/api/graphql">
+          <FeedbackPopup project="c_Ek6RB9wJv" api="/api/graphql">
             {({ handleClick }) => (
               <button
                 onClick={handleClick}
@@ -94,7 +94,7 @@ export default function HomePage() {
                 💬 Feedback
               </button>
             )}
-          </FeedbackForm>
+          </FeedbackPopup>
         </div>
       </Section>
       <Section title="Elegant dashboard" id="dashboard">
