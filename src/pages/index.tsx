@@ -85,7 +85,7 @@ export default function HomePage() {
         />
         <div className="mt-3">Check out the feedback button live below!</div>
         <div className="mt-3">
-          <FeedbackPopup project="c_Ek6RB9wJv" api="/api/graphql">
+          <FeedbackPopup project="usermatters_demo" api="/api/graphql">
             {({ handleClick }) => (
               <button
                 onClick={handleClick}
