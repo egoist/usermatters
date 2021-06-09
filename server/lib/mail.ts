@@ -91,7 +91,7 @@ export const sendNewFeedbackEmail = async (
       .map((v) => v.trim())
       .slice(0, 3),
     subject: `[${project.name}] New feedback from ${feedback.userName}`,
-    replyTo: feedback.userEmail,
+    'h:Reply-To': feedback.userEmail,
     html,
   })
 }
