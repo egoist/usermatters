@@ -1,0 +1,15 @@
+query getFeedbacksByProjectSlug($projectSlug: String!, $after: Int) {
+  feedbacks(projectSlug: $projectSlug, after: $after) {
+    nodes {
+      id
+      slug
+      content
+      createdAt
+      userEmail
+      userName
+      formattedDate
+      reaction
+    }
+    hasMore
+  }
+}

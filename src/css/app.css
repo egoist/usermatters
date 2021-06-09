@@ -1,0 +1,105 @@
+:not(pre) > code {
+  @apply bg-indigo-500;
+  @apply text-white;
+  @apply rounded;
+  @apply text-xs;
+  @apply p-1;
+  @apply mx-1;
+  @apply leading-none;
+}
+
+.form-group {
+  @apply mb-3;
+}
+
+.label {
+  @apply block;
+  @apply mb-1;
+  @apply font-bold;
+}
+
+.input {
+  @apply border;
+  @apply rounded-lg;
+  @apply px-3;
+  @apply h-10;
+  @apply inline-flex;
+  @apply focus:outline-none;
+  @apply focus:ring-2;
+  @apply ring-indigo-200;
+  @apply focus:border-indigo-400;
+}
+
+.input[disabled] {
+  @apply opacity-50;
+  @apply cursor-not-allowed;
+}
+
+.button {
+  @apply text-white;
+  @apply h-10;
+  @apply rounded-lg;
+  @apply px-3;
+  @apply inline-flex;
+  @apply items-center;
+  @apply justify-center;
+  @apply focus:outline-none;
+  @apply focus:ring-2;
+}
+
+.button.is-primary {
+  @apply bg-indigo-500;
+  @apply ring-indigo-200;
+}
+
+.button.is-danger {
+  @apply bg-red-400;
+  @apply ring-red-200;
+}
+
+.button.is-tiny {
+  @apply h-6;
+  @apply px-2;
+  @apply text-xs;
+}
+
+.help {
+  @apply text-xs;
+  @apply text-gray-400;
+  @apply mb-2;
+  @apply -mt-1;
+}
+
+.page-separator {
+  @apply relative;
+  z-index: 2;
+}
+
+.page-separator span {
+  @apply bg-dashboard;
+  @apply px-5;
+  @apply text-gray-400;
+}
+
+.page-separator:before {
+  content: '';
+  height: 1px;
+  z-index: -1;
+  @apply left-0;
+  @apply w-full;
+  @apply bg-gray-200;
+  @apply absolute;
+  @apply top-1/2;
+}
+
+.text-highlight {
+  background: linear-gradient(
+    -100deg,
+    rgba(250, 246, 133, 0.3),
+    rgba(250, 246, 133, 0.7) 95%,
+    rgba(250, 246, 133, 0.1)
+  );
+  border-radius: 1.7rem 0;
+  padding: 0 1rem;
+  margin: 0 -0.5rem;
+}

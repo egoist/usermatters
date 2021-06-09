@@ -1,0 +1,9 @@
+query getProjectBySlug($slug: String!) {
+  project(slug: $slug) {
+    id
+    slug
+    name
+    allowedDomains
+    notifyEmail
+  }
+}

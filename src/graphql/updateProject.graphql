@@ -1,0 +1,16 @@
+mutation updateProject(
+  $projectSlug: String!
+  $name: String
+  $allowedDomains: String
+  $notifyEmail: String
+) {
+  updateProject(
+    projectSlug: $projectSlug
+    name: $name
+    allowedDomains: $allowedDomains
+    notifyEmail: $notifyEmail
+  ) {
+    id
+    slug
+  }
+}

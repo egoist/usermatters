@@ -1,0 +1,3 @@
+mutation deleteFeedback($slug: String!) {
+  deleteFeedback(slug: $slug)
+}

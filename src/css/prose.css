@@ -1,0 +1,15 @@
+.prose p {
+  @apply my-5;
+}
+
+.prose h4 {
+  @apply my-5 text-xl font-bold;
+}
+
+.prose ul {
+  @apply my-5 list-disc pl-5;
+}
+
+.prose pre {
+  @apply my-5;
+}

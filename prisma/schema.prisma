@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            Int             @id @default(autoincrement())
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  name          String
+  email         String          @unique
+  password      String?
+  emailVerified DateTime?
+  plan          String?
+  members       ProjectMember[]
+
+  @@map(name: "users")
+}
+
+model ProjectMember {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  role      String
+  user      User     @relation(fields: [userId], references: [id])
+  project   Project  @relation(fields: [projectId], references: [id])
+  userId    Int
+  projectId Int
+
+  @@map(name: "project_members")
+}
+
+model Project {
+  id             Int             @id @default(autoincrement())
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  slug           String          @unique
+  name           String
+  members        ProjectMember[]
+  allowedDomains String?
+  feedbacks      Feedback[]
+  notifyEmail    String?
+
+  @@map(name: "projects")
+}
+
+model Feedback {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  slug      String   @unique
+  content   String
+  project   Project  @relation(fields: [projectId], references: [id])
+  projectId Int
+  userEmail String
+  userName  String
+  browser   String?
+  os        String?
+  country   String?
+  timezone  String?
+  reaction  String?
+
+  @@map(name: "feedbacks")
+}
