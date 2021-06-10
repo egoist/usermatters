@@ -20,6 +20,7 @@ model User {
   emailVerified DateTime?
   plan          String?
   members       ProjectMember[]
+  googleUserId  String?         @unique
 
   @@map(name: "users")
 }

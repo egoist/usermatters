@@ -36,7 +36,6 @@
 }
 
 .button {
-  @apply text-white;
   @apply h-10;
   @apply rounded-lg;
   @apply px-3;
@@ -48,11 +47,13 @@
 }
 
 .button.is-primary {
+  @apply text-white;
   @apply bg-indigo-500;
   @apply ring-indigo-200;
 }
 
 .button.is-danger {
+  @apply text-white;
   @apply bg-red-400;
   @apply ring-red-200;
 }
@@ -102,4 +103,21 @@
   border-radius: 1.7rem 0;
   padding: 0 1rem;
   margin: 0 -0.5rem;
+}
+
+.separator {
+  position: relative;
+  @apply my-8;
+}
+
+.separator:before {
+  content: '';
+  height: 1px;
+  @apply bg-gray-200;
+  @apply w-full block;
+}
+
+.separator span {
+  @apply px-4;
+  @apply absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2;
 }

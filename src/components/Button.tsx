@@ -5,7 +5,7 @@ export const Button: React.FC<
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
     isLoading?: boolean
     isDisabled?: boolean
-    variant: 'primary' | 'danger'
+    variant?: 'primary' | 'danger'
     size?: 'tiny'
   }
 > = ({ isLoading, isDisabled, children, variant, size, ...props }) => {

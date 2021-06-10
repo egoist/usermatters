@@ -36,6 +36,8 @@
     "nanoid": "^3.1.23",
     "next": "^10.2.3",
     "next-connect": "^0.10.1",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

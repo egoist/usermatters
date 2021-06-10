@@ -1,7 +1,14 @@
-import { IncomingMessage } from 'http'
+import { IncomingMessage, ServerResponse } from 'http'
 import { sign, verify } from 'jsonwebtoken'
 import cookie from 'cookie'
 import { prisma } from './prisma'
+
+export const loginAndRedirect = (userId: number, res: ServerResponse) => {
+  res.setHeader('set-cookie', generateAuthCookie(userId))
+  res.setHeader('Location', '/projects')
+  res.statusCode = 302
+  res.end()
+}
 
 export const generateLoginCode = (email: string) => {
   return sign({ email }, process.env.AUTH_SECRET, { expiresIn: '10minutes' })
