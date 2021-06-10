@@ -2,8 +2,9 @@ declare namespace NodeJS {
   interface ProcessEnv {
     // Additional environment variables
     NEXT_PUBLIC_APP_NAME: string
-    GITHUB_ID: string
-    GITHUB_SECRET: string
+    NEXT_PUBLIC_APP_DOMAIN?: string
+    GOOGLE_CLIENT_ID?: string
+    GOOGLE_CLIENT_SECRET?: string
     DB_URL: string
     REDIS_URL?: string
     AUTH_SECRET: string
